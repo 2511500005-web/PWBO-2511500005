@@ -1,19 +1,18 @@
 /* ===========================================================
-   style.css — dibuat sendiri (tidak menggunakan file hasil
-   download dari Bootstrap). Font-family di bawah ini SENGAJA
-   disamakan persis dengan font default Bootstrap v4/v5
-   ($font-family-sans-serif), tapi semuanya font sistem/bawaan
-   OS sehingga tidak perlu diunduh dari internet sama sekali.
+   style.css — dibuat sendiri (tidak menggunakan Bootstrap,
+   tidak ada file yang didownload dari CDN manapun).
+   Font-family disamakan persis dengan font default Bootstrap
+   v4/v5, tapi semuanya font sistem/bawaan OS.
    =========================================================== */
 
 :root {
     --kuning: #FFD54A;
     --coklat-tua: #5C3A21;
     --coklat: #8B5E34;
+    --biru: #2F7FE0;
     --teks: #212529;
     --lebar-container: 960px;
 
-    /* font-family persis seperti default Bootstrap */
     --font-bootstrap: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
         "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
         "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -39,6 +38,13 @@ body {
     margin: 0 auto;
     padding: 0 20px;
 }
+
+.row { display: flex; flex-wrap: wrap; margin: 0 -10px; }
+.col-6 { width: 100%; max-width: 560px; padding: 0 10px; }
+
+.mt-4 { margin-top: 1.5rem; }
+.mt-5 { margin-top: 2.5rem; }
+.mt-3 { margin-top: 1rem; }
 
 /* ---------- NAVBAR ---------- */
 .navbar {
@@ -101,9 +107,10 @@ body {
     color: #555;
 }
 
+/* ---------- BUTTON ---------- */
 .btn {
     display: inline-block;
-    padding: 10px 22px;
+    padding: 9px 18px;
     border-radius: 6px;
     text-decoration: none;
     font-weight: 600;
@@ -111,11 +118,13 @@ body {
     color: #fff;
     border: none;
     cursor: pointer;
+    font-size: .95rem;
 }
 
-.btn:hover {
-    background: var(--coklat);
-}
+.btn:hover { background: var(--coklat); }
+.btn-sm { padding: 6px 14px; font-size: .85rem; }
+.btn-secondary { background: #6c757d; }
+.btn-secondary:hover { background: #5a6268; }
 
 /* ---------- ABOUT PAGE ---------- */
 .about-photo-wrap {
@@ -129,36 +138,157 @@ body {
     height: 220px;
 }
 
-h1.mt-4, h3.mt-4 {
-    margin-top: 1.5rem;
+/* ---------- LIST GROUP (pengganti list-group Bootstrap) ---------- */
+.list-group {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #e3e3e3;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
-/* ---------- DAFTAR MAHASISWA ---------- */
-.mhs-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 18px;
-    margin-top: 20px;
-}
-
-.mhs-card {
+.list-group-item {
+    padding: 12px 16px;
     background: #fff;
-    border: 1px solid #e5e5e5;
+    border-bottom: 1px solid #eee;
+}
+
+.list-group-item:last-child {
+    border-bottom: none;
+}
+
+.nama-link {
+    color: var(--teks);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color .15s ease;
+}
+
+.nama-link:hover {
+    color: var(--biru);
+    text-decoration: underline;
+}
+
+.d-flex { display: flex; }
+.justify-content-between { justify-content: space-between; }
+.align-items-center { align-items: center; }
+
+/* ---------- BADGE (pengganti badge Bootstrap) ---------- */
+.badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: .78rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.badge-primary {
+    background: var(--biru);
+    color: #fff;
+}
+
+.badge-danger {
+    background: #E3576C;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.badge-danger:hover {
+    background: #c94758;
+}
+
+.aksi-group {
+    display: flex;
+    gap: 8px;
+}
+
+/* ---------- CARD (pengganti card Bootstrap) ---------- */
+.card {
+    width: 18rem;
+    border: 1px solid #e3e3e3;
+    border-radius: 8px;
+    background: #fff;
+}
+
+.card-body { padding: 18px 20px; }
+.card-title { margin: 0 0 4px 0; font-size: 1.2rem; }
+.card-subtitle { margin: 0 0 10px 0; color: #777; font-size: .9rem; }
+.card-text { margin: 4px 0; color: #444; }
+.card-link { color: var(--biru); text-decoration: none; font-weight: 600; }
+.card-link:hover { text-decoration: underline; }
+
+/* ---------- MODAL (custom, murni CSS + sedikit JS, tanpa Bootstrap JS) ---------- */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.5);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-overlay.show {
+    display: flex;
+}
+
+.modal-box {
+    background: #fff;
+    width: 90%;
+    max-width: 420px;
     border-radius: 10px;
-    padding: 18px 20px;
+    overflow: hidden;
 }
 
-.mhs-card h4 {
-    margin: 0 0 8px 0;
-    color: var(--coklat-tua);
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 18px;
+    border-bottom: 1px solid #eee;
 }
 
-.mhs-card p {
-    margin: 4px 0;
-    font-size: .92rem;
-    color: #555;
+.modal-header h5 { margin: 0; }
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: #999;
+    line-height: 1;
 }
 
+.modal-body { padding: 18px; }
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 14px 18px;
+    border-top: 1px solid #eee;
+}
+
+/* ---------- FORM ---------- */
+.form-group { margin-bottom: 14px; }
+.form-group label { display: block; margin-bottom: 5px; font-weight: 600; font-size: .9rem; }
+.form-control {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-family: var(--font-bootstrap);
+    font-size: .95rem;
+}
+.form-control:focus {
+    outline: none;
+    border-color: var(--biru);
+}
+
+/* ---------- DATA LOKAL INFO ---------- */
 .badge-local {
     display: inline-block;
     margin-top: 20px;

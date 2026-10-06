@@ -1,20 +1,23 @@
 [
     {
-        "nama": "MELVYN MAHINDA HADI",
-        "nim": "2511500005",
-        "email": "2511500005o@atmaluhur.ac.id",
+        "id": 1,
+        "nama": "Dono",
+        "nim": "0911500127",
+        "email": "dono@atmaluhur.ac.id",
         "jurusan": "Teknik Informatika"
     },
     {
-        "nama": "Varensia",
+        "id": 2,
+        "nama": "Kasino",
         "nim": "0911500128",
-        "email": "0911500128@atmaluhur.ac.id",
+        "email": "kasino@atmaluhur.ac.id",
         "jurusan": "Sistem Informasi"
     },
     {
-        "nama": "Randy",
+        "id": 3,
+        "nama": "Indro",
         "nim": "0911500129",
-        "email": "0911500129@atmaluhur.ac.id",
+        "email": "indro@atmaluhur.ac.id",
         "jurusan": "Manajemen Informatika"
     }
 ]
