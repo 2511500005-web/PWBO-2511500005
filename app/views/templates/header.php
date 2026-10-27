@@ -15,6 +15,7 @@ $controllerAktif = $segmen[0];
 $isHome = ($controllerAktif === '' || $controllerAktif === 'home');
 $isMahasiswa = ($controllerAktif === 'mahasiswa');
 $isMatakuliah = ($controllerAktif === 'matakuliah');
+$isPengembalian = ($controllerAktif === 'pengembalian');
 $isAbout = ($controllerAktif === 'about');
 ?>
 
@@ -32,6 +33,7 @@ $isAbout = ($controllerAktif === 'about');
                 <a class="nav-link<?php echo $isHome ? ' active' : ''; ?>" href="<?php echo BASEURL; ?>">Home<?php echo $isHome ? ' <span class="sr-only">(current)</span>' : ''; ?></a>
                 <a class="nav-link<?php echo $isMahasiswa ? ' active' : ''; ?>" href="<?php echo BASEURL; ?>/mahasiswa">Mahasiswa<?php echo $isMahasiswa ? ' <span class="sr-only">(current)</span>' : ''; ?></a>
                 <a class="nav-link<?php echo $isMatakuliah ? ' active' : ''; ?>" href="<?php echo BASEURL; ?>/matakuliah/tampil">Mata Kuliah<?php echo $isMatakuliah ? ' <span class="sr-only">(current)</span>' : ''; ?></a>
+                <a class="nav-link<?php echo $isPengembalian ? ' active' : ''; ?>" href="<?php echo BASEURL; ?>/pengembalian/tampil">Pengembalian Buku<?php echo $isPengembalian ? ' <span class="sr-only">(current)</span>' : ''; ?></a>
                 <a class="nav-link<?php echo $isAbout ? ' active' : ''; ?>" href="<?php echo BASEURL; ?>/about">About<?php echo $isAbout ? ' <span class="sr-only">(current)</span>' : ''; ?></a>
             </div>
         </div>
