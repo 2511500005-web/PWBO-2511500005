@@ -41,5 +41,17 @@
             "nama": "Algoritma dan Struktur Data",
             "sks": 3
         }
+    ],
+    "2511500005Pengembalian": [
+        {
+            "Kd_Kembali005": "KB005",
+            "NimMhs005": "2511500005",
+            "NmMhs005": "MELVYN MAHINDA HADI",
+            "NmBuku005": "HIJAU SI PENYELAMAT",
+            "JumBuku005": 1,
+            "TglKembali005": 30,
+            "Denda005": 0,
+            "id": 1
+        }
     ]
 }

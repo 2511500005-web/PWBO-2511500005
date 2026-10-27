@@ -36,6 +36,7 @@
                     <td><?php echo e($pk['Denda005']); ?></td>
                     <td>
                         <a href="<?php echo BASEURL; ?>/pengembalian/detail/<?php echo e($pk['id']); ?>" class="badge badge-primary badge-pill">detail</a>
+                        <a href="<?php echo BASEURL; ?>/pengembalian/ubah/<?php echo e($pk['id']); ?>" class="badge badge-success badge-pill ml-1">ubah</a>
                         <a href="<?php echo BASEURL; ?>/pengembalian/hapus/<?php echo e($pk['id']); ?>" class="badge badge-danger badge-pill ml-1" onclick="return confirm('Yakin?');">hapus</a>
                     </td>
                 </tr>

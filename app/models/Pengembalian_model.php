@@ -20,6 +20,12 @@ class Pengembalian_model {
         return $this->db->tambah($this->tabel, $data, ['Kd_Kembali005']);
     }
 
+    public function ubahPengembalian($data) {
+        $id = $data['id'];
+        unset($data['id']);
+        return $this->db->ubah($this->tabel, $id, $data, ['Kd_Kembali005']);
+    }
+
     public function hapusPengembalian($id) {
         return $this->db->hapus($this->tabel, $id);
     }

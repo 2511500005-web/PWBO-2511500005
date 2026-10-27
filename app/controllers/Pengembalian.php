@@ -59,6 +59,44 @@ class Pengembalian extends Controller {
         $this->view('templates/footer', $data);
     }
 
+    public function ubah($id = null) {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $data = $this->ambilData();
+            $data['id'] = $this->ambilPost('id');
+
+            if ($data['id'] === '' || !$this->valid($data)) {
+                Flasher::setFlash('gagal', 'diubah', 'danger');
+                $this->redirect('/pengembalian/tampil');
+            }
+
+            foreach ($this->kolomAngka as $kolom) {
+                $data[$kolom] = (int) $data[$kolom];
+            }
+
+            $jumlah = $this->model('Pengembalian_model')->ubahPengembalian($data);
+
+            if ($jumlah > 0) {
+                Flasher::setFlash('berhasil', 'diubah', 'success');
+            } else {
+                Flasher::setFlash('gagal', 'diubah', 'danger');
+            }
+            $this->redirect('/pengembalian/tampil');
+        }
+
+        $pk = $this->model('Pengembalian_model')->getPengembalianById($id);
+
+        if (!$pk) {
+            Flasher::setFlash('gagal', 'diubah', 'danger');
+            $this->redirect('/pengembalian/tampil');
+        }
+
+        $data['judul'] = 'Ubah Pengembalian Buku';
+        $data['pk'] = $pk;
+        $this->view('templates/header', $data);
+        $this->view('pengembalian/ubah', $data);
+        $this->view('templates/footer', $data);
+    }
+
     public function hapus($id) {
         $jumlah = $this->model('Pengembalian_model')->hapusPengembalian($id);
 
